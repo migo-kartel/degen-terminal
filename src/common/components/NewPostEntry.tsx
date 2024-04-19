@@ -115,9 +115,9 @@ export default function NewPostEntry({
     return false;
   };
 
-  const ref = useHotkeys("meta+enter", onSubmitPost, [draft, account], {
-    enableOnFormTags: true,
-  });
+  // const ref = useHotkeys("meta+enter", onSubmitPost, [draft, account], {
+  //   enableOnFormTags: true,
+  // });
 
   if (!draft) return null;
 

@@ -43,39 +43,39 @@ export const SelectableListWithHotkeys = ({
   }, [selectedIdx]);
 
 
-  useHotkeys(['o', Key.Enter], () => {
-    onSelect(selectedIdx);
-  }, [selectedIdx], {
-    enabled: isActive
-  })
+  // useHotkeys(['o', Key.Enter], () => {
+  //   onSelect(selectedIdx);
+  // }, [selectedIdx], {
+  //   enabled: isActive
+  // })
+  //
+  // useHotkeys('shift+o', () => {
+  //   onExpand && onExpand(selectedIdx);
+  // }, [selectedIdx], {
+  //   enabled: onExpand !== undefined && isActive
+  // })
 
-  useHotkeys('shift+o', () => {
-    onExpand && onExpand(selectedIdx);
-  }, [selectedIdx], {
-    enabled: onExpand !== undefined && isActive
-  })
+  // useHotkeys(['j', Key.ArrowDown], () => {
+  //   onDown?.();
+  //
+  //   if (selectedIdx < data.length - 1) {
+  //     setSelectedIdx(selectedIdx + 1);
+  //   }
+  // }, [data, selectedIdx, setSelectedIdx], {
+  //   enabled: isActive && !isEmpty(data)
+  // })
 
-  useHotkeys(['j', Key.ArrowDown], () => {
-    onDown?.();
-    
-    if (selectedIdx < data.length - 1) {
-      setSelectedIdx(selectedIdx + 1);
-    }
-  }, [data, selectedIdx, setSelectedIdx], {
-    enabled: isActive && !isEmpty(data)
-  })
-
-  useHotkeys(['k', Key.ArrowUp], () => {
-    onUp?.();
-
-    if (selectedIdx === 0) {
-      return;
-    }
-
-    setSelectedIdx(selectedIdx - 1);
-  }, [data, selectedIdx, setSelectedIdx], {
-    enabled: isActive && !isEmpty(data)
-  })
+  // useHotkeys(['k', Key.ArrowUp], () => {
+  //   onUp?.();
+  //
+  //   if (selectedIdx === 0) {
+  //     return;
+  //   }
+  //
+  //   setSelectedIdx(selectedIdx - 1);
+  // }, [data, selectedIdx, setSelectedIdx], {
+  //   enabled: isActive && !isEmpty(data)
+  // })
 
   if (isEmpty(data)) return null;
 

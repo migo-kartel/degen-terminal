@@ -190,33 +190,33 @@ export const CastRow = ({
 
   const reactions = getCastReactionsObj();
 
-  useHotkeys(
-    "l",
-    () => {
-      if (isSelected) {
-        onClickReaction(
-          CastReactionType.likes,
-          reactions[CastReactionType.likes].isActive
-        );
-      }
-    },
-    { enabled: isSelected },
-    [isSelected, selectedAccountIdx, authorFid, cast?.hash, reactions?.likes]
-  );
-
-  useHotkeys(
-    "shift+r",
-    () => {
-      if (isSelected) {
-        onClickReaction(
-          CastReactionType.recasts,
-          reactions[CastReactionType.recasts].isActive
-        );
-      }
-    },
-    { enabled: isSelected },
-    [isSelected, selectedAccountIdx, authorFid, cast.hash, reactions?.recasts]
-  );
+  // useHotkeys(
+  //   "l",
+  //   () => {
+  //     if (isSelected) {
+  //       onClickReaction(
+  //         CastReactionType.likes,
+  //         reactions[CastReactionType.likes].isActive
+  //       );
+  //     }
+  //   },
+  //   { enabled: isSelected },
+  //   [isSelected, selectedAccountIdx, authorFid, cast?.hash, reactions?.likes]
+  // );
+  //
+  // useHotkeys(
+  //   "shift+r",
+  //   () => {
+  //     if (isSelected) {
+  //       onClickReaction(
+  //         CastReactionType.recasts,
+  //         reactions[CastReactionType.recasts].isActive
+  //       );
+  //     }
+  //   },
+  //   { enabled: isSelected },
+  //   [isSelected, selectedAccountIdx, authorFid, cast.hash, reactions?.recasts]
+  // );
 
   const getChannelForParentUrl = (
     parentUrl: string | null

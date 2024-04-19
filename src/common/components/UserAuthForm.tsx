@@ -176,7 +176,7 @@ export function UserAuthForm({
     setIsLoading(false);
   }
 
-  useHotkeys(Key.Enter, logIn, [form.getValues()], { enableOnFormTags: true });
+  // useHotkeys(Key.Enter, logIn, [form.getValues()], { enableOnFormTags: true });
 
   return (
     <div className={cn("grid gap-6", className)}>

@@ -32,11 +32,11 @@ export default function CommandPalette() {
     allChannels
   } = useAccountStore();
 
-  useHotkeys(['meta+k'], () => {
-    toggleCommandPalette();
-  }, [isCommandPaletteOpen], {
-    enableOnFormTags: true,
-  })
+  // useHotkeys(['meta+k'], () => {
+  //   toggleCommandPalette();
+  // }, [isCommandPaletteOpen], {
+  //   enableOnFormTags: true,
+  // })
 
   const { theme, setTheme } = useTheme()
   const themeCommands = getThemeCommands(theme, setTheme);
@@ -55,16 +55,16 @@ export default function CommandPalette() {
       continue;
     }
 
-    useHotkeys(command.shortcut.replace('cmd', 'meta'), () => {
-      if (command.navigateTo) {
-        router.push(command.navigateTo);
-      }
-      command.action();
-    }, [], {
-      ...(command.options ? command.options : {}),
-      splitKey: '-',
-      enabled: command.enabled || true, // this obv doesn't work
-    })
+    // useHotkeys(command.shortcut.replace('cmd', 'meta'), () => {
+    //   if (command.navigateTo) {
+    //     router.push(command.navigateTo);
+    //   }
+    //   command.action();
+    // }, [], {
+    //   ...(command.options ? command.options : {}),
+    //   splitKey: '-',
+    //   enabled: command.enabled || true, // this obv doesn't work
+    // })
   }
 
   const nonHotkeyCommands: CommandType[] = [];

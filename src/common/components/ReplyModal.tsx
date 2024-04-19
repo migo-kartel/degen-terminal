@@ -46,15 +46,15 @@ const ReplyModal = ({ parentCast, open, setOpen }: ReplyModalProps) => {
     }
   }, [draftIdx, open])
 
-  useHotkeys(
-    'esc', 
-    () => setOpen(false), [open], 
-    {
-      enableOnFormTags: true,
-      enableOnContentEditable: true,
-      enabled: open,
-    }
-    );
+  // useHotkeys(
+  //   'esc',
+  //   () => setOpen(false), [open],
+  //   {
+  //     enableOnFormTags: true,
+  //     enableOnContentEditable: true,
+  //     enabled: open,
+  //   }
+  //   );
 
   const getTitle = () => `Reply to ${parentCast?.author.display_name || parentCast?.author.displayName} as ${account?.name}`
 

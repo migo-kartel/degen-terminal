@@ -123,12 +123,12 @@ const WarpcastLogin = () => {
     setIsLoading(false);
   };
 
-  useHotkeys(
-    ["meta+enter", "enter"],
-    () => onCreateNewAccount(),
-    [accountName],
-    { enableOnFormTags: true }
-  );
+  // useHotkeys(
+  //   ["meta+enter", "enter"],
+  //   () => onCreateNewAccount(),
+  //   [accountName],
+  //   { enableOnFormTags: true }
+  // );
 
   const renderPendingAccounts = () => {
     return (

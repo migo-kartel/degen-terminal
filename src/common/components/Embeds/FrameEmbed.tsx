@@ -12,44 +12,44 @@ const renderFrame = (
   const [isLoading, setIsLoading] = useState(true);
   const buttonCount = frame.buttons.length;
 
-  useHotkeys(
-    "1",
-    () => {
-      onClickButton(0);
-    },
-    [isSelected, hasHotkeys],
-    {
-      enabled: isSelected,
-      enableOnFormTags: false,
-      preventDefault: true,
-    }
-  );
+  // useHotkeys(
+  //   "1",
+  //   () => {
+  //     onClickButton(0);
+  //   },
+  //   [isSelected, hasHotkeys],
+  //   {
+  //     enabled: isSelected,
+  //     enableOnFormTags: false,
+  //     preventDefault: true,
+  //   }
+  // );
 
-  useHotkeys(
-    "2",
-    () => {
-      onClickButton(1);
-    },
-    [isSelected, hasHotkeys],
-    {
-      enabled: isSelected,
-      enableOnFormTags: false,
-      preventDefault: true,
-    }
-  );
+  // useHotkeys(
+  //   "2",
+  //   () => {
+  //     onClickButton(1);
+  //   },
+  //   [isSelected, hasHotkeys],
+  //   {
+  //     enabled: isSelected,
+  //     enableOnFormTags: false,
+  //     preventDefault: true,
+  //   }
+  // );
 
-  useHotkeys(
-    "3",
-    () => {
-      onClickButton(2);
-    },
-    [isSelected, hasHotkeys],
-    {
-      enabled: isSelected,
-      enableOnFormTags: false,
-      preventDefault: true,
-    }
-  );
+  // useHotkeys(
+  //   "3",
+  //   () => {
+  //     onClickButton(2);
+  //   },
+  //   [isSelected, hasHotkeys],
+  //   {
+  //     enabled: isSelected,
+  //     enableOnFormTags: false,
+  //     preventDefault: true,
+  //   }
+  // );
 
   const onImageLoad = (e: any) => {
     setIsLoading(false);
