@@ -51,7 +51,6 @@ const ProfileHoverCard = ({
             const ethWalletAddress = verifiedAdresses[verifiedAdresses.length - 1];
             const walletData = await getPortfolio(ethWalletAddress);
             const walletHoldings = parseFloat(walletData?.attributes?.total?.positions).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
-            console.log(walletHoldings);
             addUserProfile({ username, data: {...resp.result.users[0], walletHoldings} });
         }
       } catch (err) {

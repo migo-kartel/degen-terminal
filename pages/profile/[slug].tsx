@@ -117,19 +117,16 @@ export default function Profile({ profile }) {
 
         if (resp?.users && resp.users.length === 1) {
             const verifiedAdresses: Array<string> = resp.users[0].verified_addresses.eth_addresses;
-            // console.log('here profile')
-            // console.log(resp.users)
-            // addUserProfile({ username: profile.username, data: resp.users[0] });
+            
             const ethWalletAddress = verifiedAdresses[verifiedAdresses.length - 1];
             const walletData = await getPortfolio(ethWalletAddress);
             const walletHoldings = parseFloat(walletData?.attributes?.total?.positions).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
+            profile.walletHoldings = walletHoldings;
             const userData: any = resp.users[0];
             const userProfile = { username: profile.username, data: userData };
             userProfile.data.walletHoldings = walletHoldings
             addUserProfile(userProfile);
-            console.log(userProfile);
-            // console.log({'userProfile': userProfile, 'holdings': walletHoldings})
-            console.log(profile);
+            
         }
       } catch (error) {
         console.error("Failed to fetch user profile", error);
