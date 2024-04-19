@@ -82,6 +82,8 @@ export const getStaticPaths = (async () => {
 enum FeedTypeEnum {
   "casts" = "Casts",
   "likes" = "Likes",
+  "recasts" = "Recasts",
+  "channels" = "Channels",
 }
 
 export default function Profile({ profile }) {
@@ -178,6 +180,21 @@ export default function Profile({ profile }) {
             limit: 25,
           })
           .then(({ reactions }) => {
+            setCasts(reactions.map(({ cast }) => cast));
+          });
+      }
+      else if (feedType === FeedTypeEnum.channels) {
+        client.fetchUsersActiveChannels(profile.fid).then(response => {
+          console.log('User\'s Active Channels:', response);
+      });      
+      }
+      else if (feedType === FeedTypeEnum.recasts) {
+        client
+          .fetchUserReactions(profile.fid, "recasts", {
+            limit: 25,
+          })
+          .then(({ reactions }) => {
+            console.log('User\'s recasts:', reactions);
             setCasts(reactions.map(({ cast }) => cast));
           });
       }
