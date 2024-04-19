@@ -117,54 +117,54 @@ const Notifications = () => {
     },
   ];
 
-  useHotkeys(
-    "r",
-    () => {
-      setShowReplyModal(true);
-    },
-    [showReplyModal],
-    {
-      enabled: !showReplyModal,
-      enableOnFormTags: false,
-      preventDefault: true,
-    }
-  );
+  // useHotkeys(
+  //   "r",
+  //   () => {
+  //     setShowReplyModal(true);
+  //   },
+  //   [showReplyModal],
+  //   {
+  //     enabled: !showReplyModal,
+  //     enableOnFormTags: false,
+  //     preventDefault: true,
+  //   }
+  // );
 
-  useHotkeys(
-    ["tab", "shift+tab"],
-    () => {
-      setIsLeftColumnSelected(!isLeftColumnSelected);
-    },
-    [isLeftColumnSelected],
-    {
-      enabled: !showReplyModal,
-      preventDefault: true,
-    }
-  );
+  // useHotkeys(
+  //   ["tab", "shift+tab"],
+  //   () => {
+  //     setIsLeftColumnSelected(!isLeftColumnSelected);
+  //   },
+  //   [isLeftColumnSelected],
+  //   {
+  //     enabled: !showReplyModal,
+  //     preventDefault: true,
+  //   }
+  // );
 
-  useHotkeys(
-    ["l", "o", Key.Enter, Key.ArrowRight],
-    () => {
-      setIsLeftColumnSelected(false);
-    },
-    [isLeftColumnSelected],
-    {
-      enabled: !showReplyModal,
-      preventDefault: true,
-    }
-  );
+  // useHotkeys(
+  //   ["l", "o", Key.Enter, Key.ArrowRight],
+  //   () => {
+  //     setIsLeftColumnSelected(false);
+  //   },
+  //   [isLeftColumnSelected],
+  //   {
+  //     enabled: !showReplyModal,
+  //     preventDefault: true,
+  //   }
+  // );
 
-  useHotkeys(
-    ["h", Key.Escape, Key.ArrowLeft],
-    () => {
-      setIsLeftColumnSelected(true);
-    },
-    [isLeftColumnSelected],
-    {
-      enabled: !showReplyModal,
-      preventDefault: true,
-    }
-  );
+  // useHotkeys(
+  //   ["h", Key.Escape, Key.ArrowLeft],
+  //   () => {
+  //     setIsLeftColumnSelected(true);
+  //   },
+  //   [isLeftColumnSelected],
+  //   {
+  //     enabled: !showReplyModal,
+  //     preventDefault: true,
+  //   }
+  // );
 
   const renderNotificationRow = (item: NotificationType, idx: number) => {
     const timeAgo = timeDiff(now, new Date(item.timestamp));

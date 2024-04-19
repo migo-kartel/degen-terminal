@@ -121,35 +121,35 @@ export default function Settings() {
 
     return (
       <div className="w-full max-w-xl mt-20 overflow-hidden">
-        <div className="border-b border-border"></div>
-        <Collapsible>
-          <CollapsibleTrigger>
-            <h3 className="mt-4 text-md font-semibold leading-7 text-foreground/80">
-              Hotkeys / Keyboard Shortcuts (click to expand)
-            </h3>
-          </CollapsibleTrigger>
-          <CollapsibleContent>
-            <div className="border-t border-muted">
-              <dl className="divide-y divide-muted">
-                {commandsWithShortcuts.map((command) => (
-                  <div
-                    key={`command-${command.name}`}
-                    className="px-2 py-4 sm:grid sm:grid-cols-3 sm:gap-4"
-                  >
-                    <dt className="text-sm text-foreground/60">
-                      {command.name}
-                    </dt>
-                    {command.shortcut && (
-                      <dd className="mt-1 text-sm leading-6 font-semibold text-foreground sm:col-span-1 sm:mt-0">
-                        {command.shortcut.replace(/\+/g, " + ")}
-                      </dd>
-                    )}
-                  </div>
-                ))}
-              </dl>
-            </div>
-          </CollapsibleContent>
-        </Collapsible>
+        {/*<div className="border-b border-border"></div>*/}
+        {/*<Collapsible>*/}
+        {/*  <CollapsibleTrigger>*/}
+        {/*    <h3 className="mt-4 text-md font-semibold leading-7 text-foreground/80">*/}
+        {/*      Hotkeys / Keyboard Shortcuts (click to expand)*/}
+        {/*    </h3>*/}
+        {/*  </CollapsibleTrigger>*/}
+        {/*  <CollapsibleContent>*/}
+        {/*    <div className="border-t border-muted">*/}
+        {/*      <dl className="divide-y divide-muted">*/}
+        {/*        {commandsWithShortcuts.map((command) => (*/}
+        {/*          <div*/}
+        {/*            key={`command-${command.name}`}*/}
+        {/*            className="px-2 py-4 sm:grid sm:grid-cols-3 sm:gap-4"*/}
+        {/*          >*/}
+        {/*            <dt className="text-sm text-foreground/60">*/}
+        {/*              {command.name}*/}
+        {/*            </dt>*/}
+        {/*            {command.shortcut && (*/}
+        {/*              <dd className="mt-1 text-sm leading-6 font-semibold text-foreground sm:col-span-1 sm:mt-0">*/}
+        {/*                {command.shortcut.replace(/\+/g, " + ")}*/}
+        {/*              </dd>*/}
+        {/*            )}*/}
+        {/*          </div>*/}
+        {/*        ))}*/}
+        {/*      </dl>*/}
+        {/*    </div>*/}
+        {/*  </CollapsibleContent>*/}
+        {/*</Collapsible>*/}
       </div>
     );
   };

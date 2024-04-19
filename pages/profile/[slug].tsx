@@ -136,22 +136,22 @@ export default function Profile({ profile }) {
     getData();
   }, [profile, userFid, addUserProfile]);
 
-  useHotkeys(
-    ["tab", "shift+tab"],
-    () => {
-      setFeedType(
-        feedType === FeedTypeEnum.casts
-          ? FeedTypeEnum.likes
-          : FeedTypeEnum.casts
-      );
-      setSelectedFeedIdx(0);
-      window.scrollTo(0, 0);
-    },
-    [feedType],
-    {
-      preventDefault: true,
-    }
-  );
+  // useHotkeys(
+  //   ["tab", "shift+tab"],
+  //   () => {
+  //     setFeedType(
+  //       feedType === FeedTypeEnum.casts
+  //         ? FeedTypeEnum.likes
+  //         : FeedTypeEnum.casts
+  //     );
+  //     setSelectedFeedIdx(0);
+  //     window.scrollTo(0, 0);
+  //   },
+  //   [feedType],
+  //   {
+  //     preventDefault: true,
+  //   }
+  // );
 
   useEffect(() => {
     if (!profile) return;

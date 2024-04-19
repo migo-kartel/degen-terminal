@@ -129,31 +129,31 @@ export default function Feed() {
     isLoadingFeed,
   ]);
 
-  useHotkeys(
-    [Key.Escape, "§"],
-    () => {
-      setShowCastThreadView(false);
-    },
-    [showCastThreadView, showReplyModal, showEmbedsModal],
-    {
-      enableOnFormTags: true,
-      enableOnContentEditable: true,
-      enabled: showCastThreadView && !showReplyModal && !showEmbedsModal,
-    }
-  );
+  // useHotkeys(
+  //   [Key.Escape, "§"],
+  //   () => {
+  //     setShowCastThreadView(false);
+  //   },
+  //   [showCastThreadView, showReplyModal, showEmbedsModal],
+  //   {
+  //     enableOnFormTags: true,
+  //     enableOnContentEditable: true,
+  //     enabled: showCastThreadView && !showReplyModal && !showEmbedsModal,
+  //   }
+  // );
 
-  useHotkeys(
-    "r",
-    () => {
-      setShowReplyModal(true);
-    },
-    [showReplyModal],
-    {
-      enabled: !showReplyModal,
-      enableOnFormTags: false,
-      preventDefault: true,
-    }
-  );
+  // useHotkeys(
+  //   "r",
+  //   () => {
+  //     setShowReplyModal(true);
+  //   },
+  //   [showReplyModal],
+  //   {
+  //     enabled: !showReplyModal,
+  //     enableOnFormTags: false,
+  //     preventDefault: true,
+  //   }
+  // );
 
   const getFeedType = (parentUrl: string | undefined) =>
     parentUrl === CUSTOM_CHANNELS.FOLLOWING
