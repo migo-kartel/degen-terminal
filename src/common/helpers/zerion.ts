@@ -1,9 +1,9 @@
 import axios from "axios";
 
 export const getPortfolio = async (ethAddress: string) => {
-    var username = process.env.NEXT_PUBLIC_ZERION_API_KEY;
-    var password = '';
-    var basicAuth = 'Basic ' + btoa(username + ':' + password);
+    const username = process.env.NEXT_PUBLIC_ZERION_API_KEY;
+    const password = '';
+    const basicAuth = 'Basic ' + btoa(username + ':' + password);
 
     const options = {
         method: 'GET',

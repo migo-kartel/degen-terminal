@@ -240,7 +240,7 @@ export function UserAuthForm({
                 disabled={isLoading}
                 onClick={() => signUp()}
               >
-                Signupss
+                Signup
               </Button>
               <Button
                 type="button"
