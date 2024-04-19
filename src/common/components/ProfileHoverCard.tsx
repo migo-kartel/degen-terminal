@@ -12,6 +12,7 @@ import { useDataStore } from "@/stores/useDataStore";
 import get from "lodash.get";
 import FollowButton from "./FollowButton";
 import { NeynarAPIClient } from "@neynar/nodejs-sdk";
+import { getPortfolio } from '../helpers/zerion';
 
 type ProfileHoverCardProps = {
   username: string;
@@ -36,6 +37,7 @@ const ProfileHoverCard = ({
 
     const getData = async () => {
       try {
+        console.log('testing something on here!!!!');
         const neynarClient = new NeynarAPIClient(
           process.env.NEXT_PUBLIC_NEYNAR_API_KEY!
         );
@@ -44,7 +46,13 @@ const ProfileHoverCard = ({
           userFid! as number
         );
         if (resp?.result?.users && resp.result.users.length > 0) {
-          addUserProfile({ username, data: resp.result.users[0] });
+
+            const verifiedAdresses: Array<string> = resp.result.users[0].verified_addresses.eth_addresses;
+            const ethWalletAddress = verifiedAdresses[verifiedAdresses.length - 1];
+            const walletData = await getPortfolio(ethWalletAddress);
+            const walletHoldings = parseFloat(walletData?.attributes?.total?.positions).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
+            console.log(walletHoldings);
+            addUserProfile({ username, data: {...resp.result.users[0], walletHoldings} });
         }
       } catch (err) {
         console.log("ProfileHoverCard: err getting data", err);
@@ -81,6 +89,7 @@ const ProfileHoverCard = ({
           <div>
             <h2 className="text-md font-semibold">{profile?.display_name}</h2>
             <h3 className="text-sm font-regular">@{username}</h3>
+            <h3 className="text-sm font-regular">Holdings <strong>${profile?.walletHoldings}</strong></h3>
           </div>
           {profile ? (
             <>

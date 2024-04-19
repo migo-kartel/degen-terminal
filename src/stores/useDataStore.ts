@@ -77,7 +77,7 @@ export type DexPair = {
 
 type addUserProfileProps = {
   username: string;
-  data: User;
+  data: any;
 };
 
 type addTokenDataProps = {
@@ -86,7 +86,7 @@ type addTokenDataProps = {
 };
 
 interface DataStoreProps {
-  usernameToData: Record<string, User>;
+  usernameToData: Record<string, any>;
   tokenSymbolToData: Record<string, DexPair>;
 }
 

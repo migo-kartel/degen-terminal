@@ -21,6 +21,7 @@ import { useHotkeys } from "react-hotkeys-hook";
 import FollowButton from "../../src/common/components/FollowButton";
 import { useAccountStore } from "../../src/stores/useAccountStore";
 import { useDataStore } from "../../src/stores/useDataStore";
+import { getPortfolio } from '../../src/common/helpers/zerion';
 
 const APP_FID = Number(process.env.NEXT_PUBLIC_APP_FID!);
 
@@ -35,6 +36,7 @@ export async function getStaticProps({ params: { slug } }) {
     } else {
       user = await client.lookupUserByUsername(slug);
     }
+    console.log("im here");
   } catch (error) {
     console.error("Failed to get data for profile page", error, slug);
     return {
@@ -112,8 +114,22 @@ export default function Profile({ profile }) {
         const resp = await neynarClient.fetchBulkUsers([profile.fid], {
           viewerFid: userFid! as number,
         });
+
         if (resp?.users && resp.users.length === 1) {
-          addUserProfile({ username: profile.username, data: resp.users[0] });
+            const verifiedAdresses: Array<string> = resp.users[0].verified_addresses.eth_addresses;
+            // console.log('here profile')
+            // console.log(resp.users)
+            // addUserProfile({ username: profile.username, data: resp.users[0] });
+            const ethWalletAddress = verifiedAdresses[verifiedAdresses.length - 1];
+            const walletData = await getPortfolio(ethWalletAddress);
+            const walletHoldings = parseFloat(walletData?.attributes?.total?.positions).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
+            const userData: any = resp.users[0];
+            const userProfile = { username: profile.username, data: userData };
+            userProfile.data.walletHoldings = walletHoldings
+            addUserProfile(userProfile);
+            console.log(userProfile);
+            // console.log({'userProfile': userProfile, 'holdings': walletHoldings})
+            console.log(profile);
         }
       } catch (error) {
         console.error("Failed to fetch user profile", error);
@@ -121,7 +137,7 @@ export default function Profile({ profile }) {
     };
 
     getData();
-  }, [profile, userFid]);
+  }, [profile, userFid, addUserProfile]);
 
   useHotkeys(
     ["tab", "shift+tab"],
@@ -253,6 +269,7 @@ export default function Profile({ profile }) {
                 <span className="text-sm text-foreground/80">
                   @{profile.username}
                 </span>
+                <h3 className="text-sm font-regular">Holdings <strong>${profile?.walletHoldings}</strong></h3>
               </div>
             </div>
             {userFid !== profile.fid && (
@@ -264,7 +281,7 @@ export default function Profile({ profile }) {
               <strong>{profile.followingCount}</strong> Following
             </span>
             <span>
-              <strong>{profile.followerCount}</strong> Followers
+              <strong>{profile.followerCount}</strong> Followersssss
             </span>
           </div>
           <span className="text-foreground">{profile.profile.bio.text}</span>
