@@ -154,7 +154,7 @@ const AccountsRightSidebar = ({ showChannels }: AccountsRightSidebarProps) => {
   const renderChannels = () => {
     return (
       <div className="mt-4">
-        <ChannelsOverview />
+        {/*<ChannelsOverview />*/}
       </div>
     );
   };
