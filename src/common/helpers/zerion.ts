@@ -4,7 +4,7 @@ export const getPortfolio = async (ethAddress: string) => {
     const url = process.env.NEXT_PUBLIC_ZERION_URL;
     const options = {
         method: 'GET',
-        url: `http://178.128.55.96:8003/crypto-wallet/${ethAddress}`,
+        url: `https://api-usap.stjudeappraisal.io/api/crypto-wallet/${ethAddress}`,
         headers: {
           accept: 'application/json',
         }
